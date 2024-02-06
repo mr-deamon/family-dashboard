@@ -4,7 +4,6 @@ import arrow
 from jinja2 import Environment, FileSystemLoader
 import json
 import requests
-import screenshot
 
 environment = Environment(loader=FileSystemLoader("."))
 template = environment.get_template("template.html.j2")
@@ -45,4 +44,3 @@ with open("index.html", mode="w", encoding="utf-8") as message:
   message.write(content)
 
 
-screenshot.take_screenshot()

@@ -28,3 +28,5 @@ def take_screenshot():
     driver.save_screenshot("screenshot.png")
 
     driver.quit()
+
+take_screenshot()
