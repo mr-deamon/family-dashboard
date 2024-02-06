@@ -8,7 +8,8 @@ python3 cal.py
 # Wait for the python-script to finish
 wait
 
-# Execute the python-script screenshot.py
-python3 screenshot.py
+docker run --rm -v $(pwd):/app screenshotter
+
+
 
 convert screenshot.png -set colorspace Gray -define png:color-type=0 PNG24:out2.png

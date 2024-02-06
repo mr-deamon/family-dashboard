@@ -13,4 +13,4 @@ else \
     apt-get install chromium-browser chromium-chromedriver -y; \
 fi
 
-CMD python3 /app/main.py
+CMD python3 /app/screenshot.py
