@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Grid Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="parent">
+        <div class="date widget">
+            <div class="dow"></div><div class="dom">6</div><div class="mon"></div>
+        </div>
+        <div class="weather widget">
+            <div class="symbol">
+                <img src="https://www.landi.ch/weather/Content/Wetter/1_real.png" class="imgbw">
+            </div>
+            <div class="text">
+                &#x1F321; -2° / 12°C<br>&#x1F31E; 5.0 h<br>&#x1F327;  0 mm (0%)
+            </div>
+        </div>
+        <div class="calendar widget"><ul class="event-list">
+          <li class="day">6 - Heute</li>
+          
+          <li class="event ">
+            <div>
+              <h4>Sportferien</h4>
+            </div>
+            <div class="time">
+              <p>00:00</p>
+            </div>
+          </li>
+          
+          <li class="event ">
+            <div>
+              <h4>Mischlers kids</h4>
+            </div>
+            <div class="time">
+              <p>13:00</p>
+            </div>
+          </li>
+          
+          <li class="day">7 - Morgen</li>
+          
+          <li class="event ">
+            <div>
+              <h4>Sportferien</h4>
+            </div>
+            <div class="time">
+              <p>00:00</p>
+            </div>
+          </li>
+          
+          <li class="event ">
+            <div>
+              <h4>Skitag</h4>
+            </div>
+            <div class="time">
+              <p>00:00</p>
+            </div>
+          </li>
+          
+          <li class="event ">
+            <div>
+              <h4>Papatag</h4>
+            </div>
+            <div class="time">
+              <p>11:30</p>
+            </div>
+          </li>
+          
+          </ul></div>
+        <div class="div4 widget"></div>
+    </div>
+    <script>
+    today = new Date();
+    document.getElementsByClassName("dow")[0].innerHTML=today.toLocaleString('de-de', {  weekday: 'long' });
+    document.getElementsByClassName("mon")[0].innerHTML=today.toLocaleString('de-de', {  month: 'long' });
+    </script>
+</body>
+</html>

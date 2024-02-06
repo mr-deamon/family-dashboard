@@ -1,0 +1,143 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: lightgray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.widget {
+    background-color: #f0f0f0; /* Grayscale color */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds shadow to widget */
+}
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*grid-template-rows: repeat(3, 1fr);*/
+    grid-template-rows: 20% 66% 10%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 1024px;
+    padding: 10px;
+}
+
+.date {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.weather {
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%) saturate(10000%);
+}
+.weather img{
+    
+    width: 100px;
+    height: 200px;
+    object-fit: cover;
+    
+}
+.weather .symbol {
+    width: 30%;
+    height: 100%
+}
+.weather .text {
+    height: 100%;
+    font-size: 30px;
+    width: 60%;
+    align-items: center;
+    display: flex;
+    margin-left: 20px;
+}
+
+.calendar { grid-area: 2 / 1 / 4 / 3; }
+/*.div4 { grid-area: 3 / 1 / 4 / 3; }*/
+
+.event-list {
+    list-style: none;
+    padding: 0;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+.event-list .pers1{
+    border-left: 40px solid darkgray;
+}
+.event-list .pers2{
+    border-left: 40px solid lightgray;
+}
+.event-list .pers3{
+    border-left: 40px solid black;
+}
+.event-list .pers4{
+    border-left: 40px solid white;
+}
+  .event-list .day {
+    font-size: 1.8em;
+    font-weight: 600;
+    padding: 3px 15px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    /*border-left: 4px solid #007bff;*/
+    background: lightgray;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  .event-list .event {
+    background-color: white;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .event-list .event h4 {
+    margin: 0 0 5px;
+    font-size: 1.9em;
+    color: black;
+    font-weight: normal;
+  }
+  .event-list .event .time {
+    margin-left: auto;
+    text-align: right;
+  }
+  .event-list .event .time p {
+    color: #333;
+    margin-top: 8px;
+    font-size: 1.7em;
+    margin-bottom: 8px;
+  }
+  .date .dow{width: 50%;
+    font-size: 40px;
+    margin-top:-10px;
+    text-align: center;
+    margin-bottom:-45px;
+}
+.date .dom{
+font-size: 140px;
+    font-weight: bold;
+    width: 50%;
+    font-family: 'Caveat', cursive;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.date .mon{
+    width: 50%;
+    margin-top:-45px;
+    text-align: center;
+    font-size: 40px;
+    display: block;
+margin-left:auto;
+margin-right: 0px;
+}

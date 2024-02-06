@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Grid Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="parent">
+        <div class="date widget">
+            <div class="dow"></div><div class="dom">{{today}}</div><div class="mon"></div>
+        </div>
+        <div class="weather widget">
+            <div class="symbol">
+                <img src="https://www.landi.ch/weather/Content/Wetter/{{weather.uebersicht.symb}}_real.png" class="imgbw">
+            </div>
+            <div class="text">
+                &#x1F321; {{weather.uebersicht.mintemp}} / {{weather.uebersicht.maxtemp}}C<br>&#x1F31E; {{(weather.sonne.dauer|replace(" min","")|int/60)|round(0)}} h<br>&#x1F327;  {{weather.niederschlag.menge}} ({{weather.niederschlag.wahrscheinlichkeit}})
+            </div>
+        </div>
+        <div class="calendar widget"><ul class="event-list">
+          <li class="day">{{today}} - Heute</li>
+          {% for event in events[0] %}
+          <li class="event {{event.person}}">
+            <div>
+              <h4>{{event.name}}</h4>
+            </div>
+            <div class="time">
+              <p>{{event.begin.strftime('%H:%M')}}</p>
+            </div>
+          </li>
+          {% endfor %}
+          <li class="day">{{tomorrow}} - Morgen</li>
+          {% for event in events[1] %}
+          <li class="event {{event.person}}">
+            <div>
+              <h4>{{event.name}}</h4>
+            </div>
+            <div class="time">
+              <p>{{event.begin.strftime('%H:%M')}}</p>
+            </div>
+          </li>
+          {% endfor %}
+          </ul></div>
+        <div class="div4 widget"></div>
+    </div>
+    <script>
+    today = new Date();
+    document.getElementsByClassName("dow")[0].innerHTML=today.toLocaleString('de-de', {  weekday: 'long' });
+    document.getElementsByClassName("mon")[0].innerHTML=today.toLocaleString('de-de', {  month: 'long' });
+    </script>
+</body>
+</html>
+
