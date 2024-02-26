@@ -1,6 +1,7 @@
 #!/bin/bash
 # Bash-script which executes the python-script cal.py, waits for it to finish and then runs screenshot.py
 
+cd $(dirname $0)
 
 # Execute the python-script cal.py
 python3 cal.py
@@ -8,7 +9,7 @@ python3 cal.py
 # Wait for the python-script to finish
 wait
 
-docker run --rm -v $(pwd):/app screenshotter
+docker run --rm -v $(pwd)/family-dashboard:/app screenshotter
 
 
 
