@@ -12,5 +12,5 @@ else \
     apt-get update && \
     apt-get install chromium-browser chromium-chromedriver -y; \
 fi
-
+WORKDIR /app
 CMD python3 /app/screenshot.py
