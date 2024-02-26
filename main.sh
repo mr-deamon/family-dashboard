@@ -9,7 +9,7 @@ python3 cal.py
 # Wait for the python-script to finish
 wait
 
-docker run --rm -v $(pwd)/family-dashboard:/app screenshotter
+docker run --rm -v $(pwd):/app screenshotter
 
 
 
