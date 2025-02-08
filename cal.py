@@ -8,7 +8,8 @@ import requests
 environment = Environment(loader=FileSystemLoader("."))
 template = environment.get_template("template.html.j2")
 
-today=arrow.now()
+YOUR_TIMEZONE = 'Europe/Berlin'  # Example timezone
+today=arrow.now(YOUR_TIMEZONE)
 
 def process_calendar():
 
@@ -23,11 +24,17 @@ def process_calendar():
   for i in range(0,2):
     out[i]=[]
     lastevent=""
-    day = arrow.arrow.Arrow(today.year,today.month,today.day+i)
+    day = arrow.now(YOUR_TIMEZONE).replace(hour=0, minute=0, second=0, microsecond=0).shift(days=+i)
     for event in c.timeline.on(day):
       if lastevent!=event.name:
         if(event.duration==timedelta(days=1) and event.begin!=day):
           continue
+        event_begin_local = event.begin.to(YOUR_TIMEZONE)
+        event.end = event.end.to(YOUR_TIMEZONE) if event.end else None  # Convert event.end similarly, if used
+        
+        # You might need to adjust this part depending on how you use the event times
+        # For example, you could replace the event.begin with the localized version
+        event.begin = event_begin_local
         out[i].append(event)
       lastevent = event.name
   return out
